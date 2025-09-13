@@ -7,9 +7,11 @@ export default function ProfilePic({ uri, size = 60 }) {
       source={
         uri
           ? { uri }
-          : { uri: "https://via.placeholder.com/150/cccccc/000000?text=User" }
+          : require("../assets/bobby.jpeg") // ✅ correct relative path
       }
       style={[styles.image, { width: size, height: size, borderRadius: size / 2 }]}
+      resizeMode="cover"
+      onError={(e) => console.log("ProfilePic load error:", e.nativeEvent)}
     />
   );
 }

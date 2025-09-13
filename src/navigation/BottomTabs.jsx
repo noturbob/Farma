@@ -1,10 +1,11 @@
+// src/navigation/BottomTabs.jsx
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-// screens
 import Home from "../screens/Home";
 import Cart from "../screens/Cart";
+// Placeholder screens for Orders and Profile
 import Orders from "../screens/Orders";
 import Profile from "../screens/Profile";
 

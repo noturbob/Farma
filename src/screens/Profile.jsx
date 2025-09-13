@@ -8,8 +8,8 @@ export default function Profile({ navigation }) {
     <View style={styles.container}>
       <ProfilePic size={100} />
 
-      <Text style={styles.name}>Farmer John</Text>
-      <Text style={styles.email}>john@example.com</Text>
+      <Text style={styles.name}>Bobby Anthene</Text>
+      <Text style={styles.email}>bobbyanthenrao@gmail.com</Text>
 
       <PrimaryButton title="Edit Profile" onPress={() => alert("Edit profile")} />
       <PrimaryButton title="Logout" onPress={() => navigation.navigate("Login")} />

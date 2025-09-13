@@ -1,11 +1,14 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import AuthStack from "./src/navigation/AuthStack";
+import BottomTabs from "./src/navigation/BottomTabs";
+import { AppProvider } from "./src/context/AppContext";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <AuthStack />
-    </NavigationContainer>
+    <AppProvider>
+      <NavigationContainer>
+        <BottomTabs />
+      </NavigationContainer>
+    </AppProvider>
   );
 }

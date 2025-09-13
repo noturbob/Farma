@@ -1,31 +1,36 @@
-import React from "react";
+// src/screens/Cart.jsx
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
-
-const sampleCart = [
-  { id: "1", name: "Fresh Tomatoes", price: "₹50/kg", quantity: 2 },
-  { id: "2", name: "Milk (1L)", price: "₹45", quantity: 1 },
-];
+import { AppContext } from "../context/AppContext";
 
 export default function Cart() {
+  const { cart, removeFromCart } = useContext(AppContext);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Your Cart</Text>
 
-      <FlatList
-        data={sampleCart}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.product}>{item.name}</Text>
-            <Text style={styles.details}>
-              {item.price} × {item.quantity}
-            </Text>
-          </View>
-        )}
-      />
-
-      <PrimaryButton title="Checkout" onPress={() => alert("Proceeding to Checkout")} />
+      {cart.length === 0 ? (
+        <Text>Your cart is empty.</Text>
+      ) : (
+        <FlatList
+          data={cart}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.card}>
+              <Text style={styles.product}>{item.name}</Text>
+              <Text style={styles.details}>
+                ₹{item.price} × {item.quantity}
+              </Text>
+              <PrimaryButton
+                title="Remove"
+                onPress={() => removeFromCart(item.id)}
+              />
+            </View>
+          )}
+        />
+      )}
     </View>
   );
 }
