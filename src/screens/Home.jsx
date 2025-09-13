@@ -1,4 +1,3 @@
-// src/screens/Home.jsx
 import React, { useState, useContext } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import SearchBar from "../components/SearchBar";
